@@ -5,6 +5,9 @@ function App() {
 
   useEffect(() => {
     console.log(`I'm inside the useEffect hook, current count is ${count}`);
+    return () => {
+      console.log(`count: ${count} - I am used to remove anything that was setup above`);
+    };
   }, [count]);
 
   const incrementHandler = () => setCount((prevCount) => prevCount + 1);
