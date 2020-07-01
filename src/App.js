@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function App() {
+function Counter() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -18,6 +18,16 @@ function App() {
       <button onClick={incrementHandler}>increment</button>
       <button onClick={decrementHandler}>decrement</button>
       <h1>{count}</h1>
+    </div>
+  );
+}
+
+function App() {
+  const [visible, setVisible] = useState(false);
+  return (
+    <div>
+      <button onClick={() => setVisible((prevCount) => !prevCount)}>Show/Hide</button>
+      {visible && <Counter />}
     </div>
   );
 }
