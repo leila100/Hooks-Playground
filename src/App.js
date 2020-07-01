@@ -1,25 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  const incrementHandler = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
+  useEffect(() => {
+    console.log(`I'm inside the useEffect hook, current count is ${count}`);
+  }, [count]);
 
-  const decrementHandler = () => {
-    setCount((prevCount) => prevCount - 1);
-  };
-
-  const resetHandler = () => {
-    setCount(0);
-  };
+  const incrementHandler = () => setCount((prevCount) => prevCount + 1);
+  const decrementHandler = () => setCount((prevCount) => prevCount - 1);
 
   return (
     <div className='App'>
       <button onClick={incrementHandler}>increment</button>
       <button onClick={decrementHandler}>decrement</button>
-      <button onClick={resetHandler}>reset</button>
       <h1>{count}</h1>
     </div>
   );
