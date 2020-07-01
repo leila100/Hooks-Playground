@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 
 function App() {
-  const [activated, setActivated] = useState(false);
-  const buttonText = activated ? "Active" : "Inactive";
+  const [count, setCount] = useState(0);
 
-  const clickHandler = () => {
-    setActivated(!activated);
+  const incrementHandler = () => {
+    setCount((prevCount) => prevCount + 1);
   };
+
+  const decrementHandler = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
+  const resetHandler = () => {
+    setCount(0);
+  };
+
   return (
     <div className='App'>
-      <h1>Welcome to the course</h1>
-      <button onClick={clickHandler}>{buttonText}</button>
+      <button onClick={incrementHandler}>increment</button>
+      <button onClick={decrementHandler}>decrement</button>
+      <button onClick={resetHandler}>reset</button>
+      <h1>{count}</h1>
     </div>
   );
 }
